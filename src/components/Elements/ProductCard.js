@@ -1,5 +1,4 @@
-import React from 'react'
-import logo from '../../assets/images/hero.avif' 
+import { Link } from "react-router-dom"
 
 export const ProductCard = () => {
   return (
@@ -14,7 +13,7 @@ export const ProductCard = () => {
         dark:bg-gray-800
         dark:border-gray-700
     '>
-        <a href="" className='relative'>
+        <Link to="" className='relative'>
             <span className='
                 absolute
                 top-4
@@ -27,8 +26,8 @@ export const ProductCard = () => {
             '>
                 Best Seller
             </span>
-            <img src={logo} alt="" className='rounded-t-lg w-full h-64'/>
-        </a>
+            <img src="" alt="" className='rounded-t-lg w-full h-64'/>
+        </Link>
         <div className='p-5'>
             <a href="">
                 <h5 className='

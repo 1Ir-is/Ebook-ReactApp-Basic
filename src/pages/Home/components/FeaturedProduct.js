@@ -1,4 +1,4 @@
-import React from 'react'
+import { ProductCard } from "../../../components/Elements/ProductCard";
 
 export const FeaturedProduct = () => {
   return (
@@ -18,7 +18,9 @@ export const FeaturedProduct = () => {
             justify-center
             lg:flex-row
         '>       
-            {/* Featured Product */}
+            <ProductCard />
+            <ProductCard />
+            <ProductCard />
         </div>
     </section>
   )
