@@ -1,6 +1,20 @@
+import { useEffect, useState } from "react";
 import { ProductCard } from "../../../components/Elements/ProductCard";
 
 export const FeaturedProduct = () => {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    async function fetchProducts() {
+      const response = await fetch('http://localhost:8000/featured_products');
+      const data = await response.json();
+      setProducts(data);
+    }
+
+    fetchProducts();
+  }, []);
+
   return (
     <section className='my-20'>
         <h1 className='
@@ -18,9 +32,9 @@ export const FeaturedProduct = () => {
             justify-center
             lg:flex-row
         '>       
-            <ProductCard />
-            <ProductCard />
-            <ProductCard />
+            { products.map(product => (
+                <ProductCard key={product.id} product={product} />
+            )) }
         </div>
     </section>
   )
