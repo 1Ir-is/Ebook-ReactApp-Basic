@@ -15,7 +15,7 @@ export const ProductDetail = () => {
         }
 
         fetchProducts();
-    }, []);
+    }, [id]);
 
     return (
         <main>

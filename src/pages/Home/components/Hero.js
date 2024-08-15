@@ -2,10 +2,10 @@ import { Link } from "react-router-dom"
 
 export const Hero = () => {
   return (
-    <section className="flex flex-col lg:flex-row dark:text-slate-100 items-center">
-        <div className="text my-5">
+    <section className="flex flex-col lg:flex-row  dark:text-slate-100 items-center">
+        <div className="text my-5 mr-7">
             <h1 className="text-5xl font-bold">The Ultimate eBook Store</h1>
-            <p className="text-2xl my-7 px-1 dark:text-slate-300">eBookSphere is the world's most popular and authoriatative source for computer science ebooks. Find ratings and access to the newest books digitally.</p>
+            <p className="text-justify text-2xl my-7 px-1 dark:text-slate-300">eBookSphere is the world's most popular and authoriatative source for computer science ebooks. Find ratings and access to the newest books digitally.</p>
             <Link 
                 to="/products" 
                 type="button" 

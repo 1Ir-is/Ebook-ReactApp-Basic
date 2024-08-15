@@ -3,7 +3,7 @@ import { Rating } from "./Rating";
 
 export const ProductCard = ({ product }) => {
 
-    const { id, name, overview, price, rating, poster, image_local, best_seller } = product;
+    const { id, name, overview, price, rating, poster, best_seller } = product;
 
   return (
     <div className='
@@ -32,7 +32,7 @@ export const ProductCard = ({ product }) => {
                 Best Seller
             </span>
         }
-            <img src={image_local} alt={name} className='rounded-t-lg w-full h-64'/>
+            <img src={poster} alt={name} className='rounded-t-lg w-full h-64'/>
         </Link>
         <div className='p-5'>
             <Link to={`/products/${id}`}>
