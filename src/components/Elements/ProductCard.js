@@ -17,7 +17,7 @@ export const ProductCard = ({ product }) => {
         dark:bg-gray-800
         dark:border-gray-700
     '>
-        <Link to={`products/${id}`} className='relative'>
+        <Link to={`/products/${id}`} className='relative'>
         { best_seller &&
             <span className='
                 absolute
@@ -35,7 +35,7 @@ export const ProductCard = ({ product }) => {
             <img src={image_local} alt={name} className='rounded-t-lg w-full h-64'/>
         </Link>
         <div className='p-5'>
-            <Link to="/">
+            <Link to={`/products/${id}`}>
                 <h5 className='
                     mb-2
                     text-2xl
