@@ -9,8 +9,7 @@ import { FilterBar } from "./components/FilterBar";
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
-  const [products, setProducts] = useState([]);
-  // const { productList } = useFilter();
+  const { products, initialProductList } = useFilter();
   const search = useLocation().search;
   const searchTerm = new URLSearchParams(search).get("q");
   useTitle("Explore eBooks Collection");
@@ -20,7 +19,7 @@ export const ProductsList = () => {
     async function fetchProducts() {
       const response = await fetch(`http://localhost:8000/products?name_like=${searchTerm ? searchTerm : ""}`);
       const data = await response.json();
-      setProducts(data);
+      initialProductList(data);
     }
 
     fetchProducts();
