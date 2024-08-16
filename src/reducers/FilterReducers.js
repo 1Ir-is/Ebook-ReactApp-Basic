@@ -1,21 +1,33 @@
 export const filterReducer = (state, action) => {
-    const { type, payload } = action;
+    const {type, payload} = action;
 
-    switch (type) {
+    switch(type){
+
         case "PRODUCT_LIST":
             return { productList: payload.products }
+        
         case "SORT_BY":
-            return
+            return {...state, sortBy: payload.sortBy}
+        
         case "RATINGS":
-            return
+            return {...state, ratings: payload.ratings}
+        
         case "BEST_SELLER_ONLY":
-            return
+            return {...state, bestSellerOnly: payload.bestSellerOnly}
+        
         case "ONLY_IN_STOCK":
-            return
-        case "CLEAR_FILTERS":
-            return
-    
+            return {...state, onlyInStock: payload.onlyInStock}
+
+        case "CLEAR_FILTER":
+            return {
+                ...state, 
+                onlyInStock: false,
+                bestSellerOnly: false,
+                sortBy: null,
+                ratings: null
+            }
+        
         default:
-            throw new Error(`Unhandled action type: ${type}`);
+            throw new Error("No Cae Found!");
     }
 }
