@@ -1,14 +1,17 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
-export const DropdownLoggedIn = () => {
+export const DropdownLoggedIn = ({ setDropdown }) => {
 
     const navigate = useNavigate();
 
     function handleLogout() {
         sessionStorage.removeItem("token");
         sessionStorage.removeItem("cbid");
+        setDropdown(false);
+        toast.success("Logout successful");
         navigate("/");
     }
 
@@ -19,10 +22,10 @@ export const DropdownLoggedIn = () => {
             </div>
             <ul className='py-1 text-sm text-gary-700 dark:text-gray-200' aria-labelledby='dropdownUserAvatarButton'>
                 <li>
-                    <Link to="/products" className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>All eBooks</Link>
+                    <Link onClick={() => setDropdown(false)} to="/products" className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>All eBooks</Link>
                 </li>
                 <li>
-                    <Link to="/dashboard" className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Dashboard</Link>
+                    <Link onClick={() => setDropdown(false)} to="/dashboard" className='block py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white'>Dashboard</Link>
                 </li>
             </ul>
             <div className='py-1'>
