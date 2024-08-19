@@ -3,14 +3,16 @@ import Logo from "../../assets/logo.png";
 import { useEffect, useState } from "react";
 import { Search } from "../Sections/Search";
 import { DropdownLoggedIn , DropdownLoggedOut } from "../index";
-
+import { useCart } from "../../context";
 
 export const Header = () => {
+  const token = JSON.parse(sessionStorage.getItem("token"));
 
+  const { cartList } = useCart();
+  
   const [darkMode, setDarkMode] = useState(JSON.parse(localStorage.getItem("darkMode")) || false);
   const [searchSection, setSearchSection] = useState(false);
   const [dropdown, setDropdown] = useState(false);
-  const token = JSON.parse(sessionStorage.getItem("token"));
 
   useEffect(() => {
     localStorage.setItem("darkMode", JSON.stringify(darkMode));
@@ -36,7 +38,7 @@ export const Header = () => {
             <span onClick={() => setSearchSection(!searchSection)} className="cursor-pointer text-xl text-gray-700 dark:text-white mr-5 bi bi-search"></span>
             <Link to="/cart" className="text-gray-700 dark:text-white mr-5">
               <span className="text-2xl bi bi-cart-fill relative">
-                <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">0</span>
+                <span className="text-white text-sm absolute -top-1 left-2.5 bg-rose-500 px-1 rounded-full ">{cartList.length}</span>
               </span>
             </Link>
             <span onClick={() => setDropdown(!dropdown)} className="bi bi-person-circle cursor-pointer text-2xl text-gray-700 dark:text-white"></span>

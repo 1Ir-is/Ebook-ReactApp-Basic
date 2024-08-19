@@ -1,9 +1,15 @@
 import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
+import { useCart } from "../../context";
 
 export const ProductCard = ({ product }) => {
 
+    const { cartList, addToCart, removeFromCart } = useCart();
     const { id, name, overview, price, rating, poster, best_seller } = product;
+
+    function handleClick(product) {
+        addToCart(product);
+    }
 
   return (
     <div className='
@@ -65,7 +71,7 @@ export const ProductCard = ({ product }) => {
                 <span className='text-2xl dark:text-gray-200'>
                     <span>$</span><span>{price}</span>
                 </span>
-                <button className='inline-flex bg-blue-700 hover:bg-blue-800 rounded-lg text-white py-2 px-3 text-center font-medium items-center'>Add To Cart <i className="ml-2 bi bi-plus-lg"></i></button>
+                <button onClick={() => handleClick(product)} className='inline-flex bg-blue-700 hover:bg-blue-800 rounded-lg text-white py-2 px-3 text-center font-medium items-center'>Add To Cart <i className="ml-2 bi bi-plus-lg"></i></button>
                 {/* <button className='inline-flex bg-red-600 hover:bg-red-800 rounded-lg text-white py-2 px-3 text-center font-medium items-center'>Remove Item <i className="ml-2 bi bi-trash3-fill"></i></button> */}
             </p>
         </div>
