@@ -25,13 +25,14 @@ export const Login = () => {
     const response = await fetch("http://localhost:8000/login", requestOptions);
     const data = await response.json();
     if (data.accessToken) {
+      sessionStorage.setItem("token", JSON.stringify(data.accessToken));
+      sessionStorage.setItem("cbid", JSON.stringify(data.user.id));
       navigate("/products");
       toast.success("Login successful");
     }
     else {
       toast.error(data);
     }
-
   }
 
   return (
