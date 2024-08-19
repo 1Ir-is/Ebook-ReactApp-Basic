@@ -1,7 +1,18 @@
-import React from 'react'
+import React from 'react';
+import { CartCard } from './CartCard'; 
 
 export const CartList = () => {
   return (
-    <div>CartList</div>
+    <>
+        <section>
+            <p>My Cart</p>
+        </section>
+
+        <section>
+            <CartCard />
+            <CartCard />
+            <CartCard />
+        </section>
+    </>
   )
 }

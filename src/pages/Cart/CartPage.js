@@ -7,7 +7,7 @@ export const CartPage = () => {
     const cartListLength = 0;
     return (
         <main>
-            {cartListLength === 0 ? <CartEmpty /> : <CartList />}
+            {cartListLength === 0 ? <CartList /> : <CartEmpty />}
         </main>
     )
 }
