@@ -4,10 +4,10 @@ import { CartList } from './components/CartList';
 
 
 export const CartPage = () => {
-    const cartListLength = 0;
+    const cartListLength = 2;
     return (
         <main>
-            {cartListLength === 0 ? <CartList /> : <CartEmpty />}
+            {cartListLength ? <CartList /> : <CartEmpty />}
         </main>
     )
 }
