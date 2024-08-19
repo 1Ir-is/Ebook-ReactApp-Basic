@@ -22,7 +22,13 @@ export const Register = () => {
         const respone = await fetch("http://localhost:8000/register", requestOptions);
 
         const data = await respone.json();
-        data.accessToken ? navigate("/products") : toast.error(data); 
+        if (data.accessToken) {
+          navigate("/auth/login");
+          toast.success("Register successful");
+        }
+        else {
+          toast.error(data);
+        }
     }
 
   return (

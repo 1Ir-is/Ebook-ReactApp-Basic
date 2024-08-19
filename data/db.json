@@ -285,34 +285,10 @@
       "id": 1
     },
     {
-      "email": "huyhk1005@gmail.com",
-      "password": "$2a$10$r7HgsW124AvzGsNDXNeuFOWVuVlZA8jZB73WRJBqpOlTtz1NnoU2m",
-      "name": "huy",
-      "id": 2
-    },
-    {
-      "email": "admin@admin.com",
-      "password": "$2a$10$6OMjHPoUSG81X86v1k/zZ.9kOWmdzY0zXYzCRYKdYi7kFGNoqFlxe",
-      "name": "huy",
-      "id": 3
-    },
-    {
-      "email": "baotran@example.com",
-      "password": "$2a$10$A7Z1csibeLnw4OZtd7rADOTmVSh26/qldfV83A8uaZV6xR09fb8Uy",
-      "name": "Huy",
-      "id": 4
-    },
-    {
-      "email": "duc@example.com",
-      "password": "$2a$10$IkTwgTlJYEMFBMSP3Hei4.nu8FakzXzAf1Cvav31f2PTdjGgBbUaK",
-      "name": "huy",
-      "id": 5
-    },
-    {
       "email": "dinhphong@example.com",
-      "password": "$2a$10$uaF6QClrc0/CQvtg.M/3Uuc88TyM56c55C0K.F9Pp5TLrS8e9Enda",
-      "name": "huy",
-      "id": 6
+      "password": "$2a$10$4hT2pH2YV8KhljWTniZqcu1zWws6MiDKk8hXiKsIZXTdDt7GUE9Xm",
+      "name": "gserg",
+      "id": 2
     }
   ]
 }

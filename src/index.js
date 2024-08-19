@@ -19,7 +19,7 @@ root.render(
     <Router>
       <FilterProvider>
         <ScrollToTop />
-        <ToastContainer closeButton={false} autoClose={3000} position={"bottom-right"} />
+        <ToastContainer closeButton={false} autoClose={1500} position={"top-right"} />
         <App />
       </FilterProvider>
     </Router>
