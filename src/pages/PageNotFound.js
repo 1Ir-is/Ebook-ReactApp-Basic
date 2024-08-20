@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useTitle } from "../hooks/useTitle";
+import { useTitle } from "../hooks";
 import Logo from "../assets/logo.png";
 
 export const PageNotFound = () => {
