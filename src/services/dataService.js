@@ -1,8 +1,9 @@
-function getSession() {
+function getSession(){
     const token = JSON.parse(sessionStorage.getItem("token"));
     const cbid = JSON.parse(sessionStorage.getItem("cbid"));
-    return { token: token, id: cbid };
+    return {token, cbid};
 }
+
 
 export async function getUser() {
     const browserData = getSession();
