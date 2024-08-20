@@ -7,10 +7,10 @@ import { getProduct } from '../services';
 
 export const ProductDetail = () => {
     const { cartList, addToCart, removeFromCart } = useCart();
-    const [product, setProduct] = useState({});
+    const [product, setProduct] = useState(null);
     const [isInCart, setIsInCart] = useState(false);
     const { id } = useParams();
-    useTitle(product.name);
+    useTitle(product ? product.name : "Product Not Found");
 
     useEffect(() => {
         async function fetchProducts() {
@@ -22,13 +22,26 @@ export const ProductDetail = () => {
     }, [id]);
 
     useEffect(() => {
-        const cartItemFound = cartList.find((item) => item.id === product.id);
-        if (cartItemFound) {
-            setIsInCart(true);
-        } else {
-            setIsInCart(false);
+        if (product) {
+            const cartItemFound = cartList.find((item) => item.id === product.id);
+            setIsInCart(!!cartItemFound);
         }
-    }, [cartList, product.id]);
+    }, [cartList, product]);
+
+    if (!product) {
+        return (
+            <main>
+                <section>
+                    <h1 className='mt-10 mb-5 text-4xl text-center font-bold text-gray-900 dark:text-slate-200'>
+                        Product Not Found
+                    </h1>
+                    <p className='text-center text-lg text-gray-900 dark:text-slate-200'>
+                        Sorry, the product you are looking for does not exist.
+                    </p>
+                </section>
+            </main>
+        );
+    }
 
     return (
         <main>
@@ -66,5 +79,5 @@ export const ProductDetail = () => {
                 </div>
             </section>
         </main>
-    )
+    );
 }

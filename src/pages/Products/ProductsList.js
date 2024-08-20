@@ -8,6 +8,8 @@ import { getProductList } from "../../services";
 import { ProductCard } from "../../components";
 import { FilterBar } from "./components/FilterBar";
 
+import { toast } from "react-toastify";
+
 
 export const ProductsList = () => {
   const [show, setShow] = useState(false);
@@ -18,12 +20,16 @@ export const ProductsList = () => {
 
 
   useEffect(() => {
-    async function fetchProducts() {
-      const data = await getProductList(searchTerm);
-      initialProductList(data);
+    async function fetchProducts(){
+      try{
+        const data = await getProductList(searchTerm);
+        initialProductList(data); 
+      } catch(error){
+        toast.error(error.message, {closeButton: true, position: "bottom-center" });
+      }
     }
     fetchProducts();
-  }, [searchTerm]);
+  }, [searchTerm]); //eslint-disable-line
 
   return (
     <main>

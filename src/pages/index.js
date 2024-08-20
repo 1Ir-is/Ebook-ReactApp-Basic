@@ -8,3 +8,4 @@ export { ProductDetail } from './ProductDetail';
 
 export { Register } from './Register';
 export { Login } from './Login';
+export { PageNotFound } from './PageNotFound';
