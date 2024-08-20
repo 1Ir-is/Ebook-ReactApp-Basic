@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { logout } from '../../services';
 
 export const DropdownLoggedIn = ({ setDropdown }) => {
 
     const navigate = useNavigate();
 
     function handleLogout() {
-        sessionStorage.removeItem("token");
-        sessionStorage.removeItem("cbid");
+        logout();
         setDropdown(false);
         toast.success("Logout successful");
         navigate("/");
