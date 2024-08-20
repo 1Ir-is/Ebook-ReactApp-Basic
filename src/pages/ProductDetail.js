@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Rating } from '../components';
 import { useParams } from 'react-router-dom';
+import { useCart } from '../context';
 import { useTitle } from '../hooks/useTitle';
 
 export const ProductDetail = () => {
+    const { cartList, addToCart, removeFromCart } = useCart();
     const [product, setProduct] = useState({});
+    const [isInCart, setIsInCart] = useState(false);
     const { id } = useParams();
     useTitle(product.name);
 
@@ -17,6 +20,15 @@ export const ProductDetail = () => {
 
         fetchProducts();
     }, [id]);
+
+    useEffect(() => {
+        const cartItemFound = cartList.find((item) => item.id === product.id);
+        if (cartItemFound) {
+            setIsInCart(true);
+        } else {
+            setIsInCart(false);
+        }
+    }, [cartList, product.id]);
 
     return (
         <main>
@@ -44,8 +56,8 @@ export const ProductDetail = () => {
                             <span className="font-semibold text-blue-500 border bg-slate-100 rounded-lg px-3 py-1 mr-2">{product.size} MB</span>
                         </p>
                         <p className='my-3'>
-                            <button className='inline-flex bg-blue-700 hover:bg-blue-800 rounded-lg text-white py-2 px-5 text-center font-medium items-center'>Add To Cart <i className="ml-2 bi bi-plus-lg"></i></button>
-                            {/* <button className='inline-flex bg-red-600 hover:bg-red-800 rounded-lg text-white py-2 px-5 text-center font-medium items-center'>Remove Item <i className="ml-2 bi bi-trash3-fill"></i></button> */}
+                            { !isInCart && <button onClick={() => addToCart(product)} className={`inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 ${product.in_stock ? "" : "cursor-not-allowed"}`} disabled={ product.in_stock ? "" : "disabled" }>Add To Cart <i className="ml-1 bi bi-plus-lg"></i></button> } 
+                            { isInCart && <button onClick={() => removeFromCart(product)} className={`inline-flex items-center py-2 px-5 text-lg font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 ${product.in_stock ? "" : "cursor-not-allowed"}`}  disabled={ product.in_stock ? "" : "disabled" }>Remove Item <i className="ml-1 bi bi-trash3"></i></button> }  
                         </p>
                         <p className='text-lg text-justify text-gray-900 dark:text-slate-200'>
                             {product.long_description}

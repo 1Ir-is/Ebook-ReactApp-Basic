@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
 import { Rating } from "./Rating";
 import { useCart } from "../../context";
+import { useEffect, useState } from "react";
 
 export const ProductCard = ({ product }) => {
 
     const { cartList, addToCart, removeFromCart } = useCart();
+    const [isInCart, setIsInCart] = useState(false);
     const { id, name, overview, price, rating, poster, best_seller } = product;
+
+    useEffect(() => {
+        const cartItemFound = cartList.find((item) => item.id === id);
+        if (cartItemFound) {
+            setIsInCart(true);
+        } else {
+            setIsInCart(false);
+        }
+    }, [cartList, id]);
 
     function handleClick(product) {
         addToCart(product);
@@ -71,8 +82,8 @@ export const ProductCard = ({ product }) => {
                 <span className='text-2xl dark:text-gray-200'>
                     <span>$</span><span>{price}</span>
                 </span>
-                <button onClick={() => handleClick(product)} className='inline-flex bg-blue-700 hover:bg-blue-800 rounded-lg text-white py-2 px-3 text-center font-medium items-center'>Add To Cart <i className="ml-2 bi bi-plus-lg"></i></button>
-                {/* <button className='inline-flex bg-red-600 hover:bg-red-800 rounded-lg text-white py-2 px-3 text-center font-medium items-center'>Remove Item <i className="ml-2 bi bi-trash3-fill"></i></button> */}
+                { !isInCart && <button onClick={() => addToCart(product)} className={`inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 ${product.in_stock ? "" : "cursor-not-allowed"}`} disabled={ product.in_stock ? "" : "disabled" }>Add To Cart <i className="ml-1 bi bi-plus-lg"></i></button> }  
+                { isInCart && <button onClick={() => removeFromCart(product)} className={`inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-600 rounded-lg hover:bg-red-800 ${product.in_stock ? "" : "cursor-not-allowed"}`} disabled={ product.in_stock ? "" : "disabled" }>Remove Item <i className="ml-1 bi bi-trash3"></i></button> } 
             </p>
         </div>
     </div>
