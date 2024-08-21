@@ -1,16 +1,21 @@
-import { createContext , useContext, useReducer } from "react";
+import { createContext, useContext, useReducer, useEffect } from "react";
 import { cartReducers } from "../reducers";
 
-const initialState = {
-    cartList: [],
-    total: 0
-}
+// Function to load the initial cart state from localStorage
+const getInitialCartState = () => {
+    const savedCart = localStorage.getItem("cart");
+    return savedCart ? JSON.parse(savedCart) : { cartList: [], total: 0 };
+};
 
-const CardContext = createContext(initialState);
+const CardContext = createContext(getInitialCartState());
 
-export const CartProvider = ({children}) => {
+export const CartProvider = ({ children }) => {
+    const [state, dispatch] = useReducer(cartReducers, getInitialCartState());
 
-    const [state, dispatch] = useReducer(cartReducers, initialState);
+    // Save cart state to localStorage whenever the cart changes
+    useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(state));
+    }, [state]);
 
     function addToCart(product) {
         const updatedList = state.cartList.concat(product);
@@ -22,11 +27,10 @@ export const CartProvider = ({children}) => {
                 products: updatedList,
                 total: updatedTotal
             }
-        })
+        });
     }
 
     function removeFromCart(product) {
-
         const updatedList = state.cartList.filter((item) => item.id !== product.id);
         const updatedTotal = state.total - product.price;
 
@@ -36,7 +40,7 @@ export const CartProvider = ({children}) => {
                 products: updatedList,
                 total: updatedTotal
             }
-        })
+        });
     }
 
     function clearCart() {
@@ -46,23 +50,22 @@ export const CartProvider = ({children}) => {
                 products: [],
                 total: 0
             }
-        })
+        });
     }
 
-
-    const value =  {
+    const value = {
         cartList: state.cartList,
         total: state.total,
         addToCart,
         removeFromCart,
         clearCart
-    }
+    };
 
     return (
         <CardContext.Provider value={value}>
             {children}
         </CardContext.Provider>
-    )
-}
+    );
+};
 
 export const useCart = () => useContext(CardContext);
