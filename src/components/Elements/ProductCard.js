@@ -18,10 +18,6 @@ export const ProductCard = ({ product }) => {
         }
     }, [cartList, id]);
 
-    function handleClick(product) {
-        addToCart(product);
-    }
-
   return (
     <div className='
         m-3
@@ -75,7 +71,6 @@ export const ProductCard = ({ product }) => {
             </p>
             <div className='flex items-center my-2'>
                 <Rating rating={rating} />
-
             </div>
 
             <p className='flex justify-between items-center'>
