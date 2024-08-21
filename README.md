@@ -1,70 +1,83 @@
-# Getting Started with Create React App
+# eBookSphere
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+eBookSphere is an online platform for purchasing eBooks. The application is built with modern web technologies to ensure a smooth and efficient user experience.
 
-## Available Scripts
+## Demo
+*The backend was deployed in Render so it can be shutdown anytime, so the data may not display in the website.*
+- Check out the live demo of [eBookSphere at Netlify](https://ebooksphere.netlify.app/)
+- Check out the live demo of [eBookSphere at Vercel](https://ebooksphere.vercel.app/)
 
-In the project directory, you can run:
+## Technologies Used
 
-### `npm start`
+- **React**: Frontend library for building the user interface.
+- **Tailwind CSS**: Utility-first CSS framework for styling.
+- **Flowbite**: A library of interactive components built on top of Tailwind CSS.
+- **JSON Server**: A simple backend for mocking REST APIs.
+- **JWTAuth**: JSON Web Token for secure authentication.
+- **Context API**: For state management in React.
+- **Netlify/Vercel**: Deployed frontend on Netlify and Vercel.
+- **Render**: Backend (JSON Server and JSON server auth) deployed on Render.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Installation
 
-### `npm test`
+- To run this project locally, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/1Ir-is/eBookSphere-ReactApp-Basic.git
+   
+2. **Navigate to the project directory:**
+   ```bash
+   cd eBookSphere-ReactApp-Basic
+   
+3. **Install the dependencies:**
+   ```bash
+   npm install
 
-### `npm run build`
+4. **Create a .env file in the root directory and add these API KEY by your**
+   ```bash
+   REACT_APP_GUEST_LOGIN=your_account_for guest
+   REACT_APP_GUEST_PASSWORD=your_password_for guest
+   REACT_APP_HOST=your_server_in_json_server
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+5. **Start the development server:**
+   ```bash
+   npm start
+The app should now be running on http://localhost:3000.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- To run the back-end for this project locally, follow these steps:
+1. **Clone the backend repository:**
+   ```bash
+   git clone https://github.com/1Ir-is/eBookSphere-Mock-Server.git
+   
+2. **Navigate to the project directory:**
+   ```bash
+   cd eBookSphere-Mock-Server
+   
+3. **Install the dependencies:**
+   ```bash
+   npm install
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Start the development server:**
+   ```bash
+   npm start
 
-### `npm run eject`
+## Usage
+- **Browse eBooks:** Navigate through various categories to find your desired eBooks.
+- **Purchase:** Add eBooks to your cart and proceed to checkout.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Contributing
+Contributions are welcome! Please fork the repository and submit a pull request.
+1. Fork the Project
+2. Create a Feature Branch (git checkout -b feature/AmazingFeature)
+3. Make your changes.
+4. Commit your changes (git commit -m 'Add some feature').
+5. Push to the branch (git push origin feature-branch).
+6. Open a Pull Request.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contact
+For any questions, feel free to reach out:
+- **Email**: mhuynk1005@gmail.com
+- **Front-end**: https://github.com/1Ir-is/eBookSphere-ReactApp-Basic
+- **Back-end**: https://github.com/1Ir-is/eBookSphere-Mock-Server 
