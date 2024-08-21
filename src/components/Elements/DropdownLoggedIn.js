@@ -6,13 +6,11 @@ import { getUser, logout } from "../../services";
 export const DropdownLoggedIn = ({ setDropdown }) => {
     const navigate = useNavigate();
     const [user, setUser] = useState({});
-    const [isGuest, setIsGuest] = useState(false);
 
     useEffect(() => {
         async function fetchData() {
             const guestLogin = sessionStorage.getItem("isGuest");
             if (guestLogin) {
-                setIsGuest(true);
                 setUser({ email: "Guest" }); // Set user as "Guest"
             } else {
                 try {
